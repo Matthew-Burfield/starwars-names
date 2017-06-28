@@ -26,4 +26,20 @@ describe('random', () => {
     const randomItem = starWars.random()
     expect(starWars.all).to.include(randomItem)
   })
+
+  it('should return a string if not passed a number', () => {
+    expect(starWars.random()).to.be.an('string')
+  })
+
+  it('should return an array if passed a number', () => {
+    expect(starWars.random(5)).to.be.an('array')
+  })
+
+  it('should return an array of random items if passed a number', () => {
+    var randomItems = starWars.random(3)
+    expect(randomItems).to.have.length(3)
+    randomItems.forEach(item => {
+      expect(starWars.all).to.include(item)
+    })
+  })
 })
