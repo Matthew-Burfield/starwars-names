@@ -1,11 +1,11 @@
-var uniqueRandomArray = require('unique-random-array')
-var starWarsNames = require('./star-wars-names.json')
+import uniqueRandomArray from 'unique-random-array'
+import starWarsNames from './star-wars-names.json'
 var getRandomItem = uniqueRandomArray(starWarsNames)
 
-function random(num) {
-  if (num && Number(num) !== 'NaN') {
-    array = []
-    for (var i = 0; i < num; i++) {
+const random = num => {
+  if (num !== undefined && Number(num) !== 'NaN') {
+    const array = []
+    for (let i = 0; i < num; i++) {
       array.push(getRandomItem())
     }
     return array
@@ -15,5 +15,5 @@ function random(num) {
 
 module.exports = {
   all: starWarsNames,
-  random: random
+  random
 }
